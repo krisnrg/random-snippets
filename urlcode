@@ -1,0 +1,10 @@
+javascript: (function() {
+	var keywords = window.location.href;
+	var search = /(\w+) (\w+)/;
+	var matches = keywords.match(search);
+	var server = {"s": "staging.simpleviewcms.com", "l": "cms30.localhost:4443/", "sv": "simpleviewcms.com"};
+	var name = matches[2];
+	var domain = server[matches[1]];
+	var url = `https://${name}.${domain}`;
+	location.href = url;
+})();
