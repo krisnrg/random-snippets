@@ -46,3 +46,5 @@ function deploy_live() {
 function deploy_staging() {
     echo "Starting deploy to staging..."
 }
+
+main
