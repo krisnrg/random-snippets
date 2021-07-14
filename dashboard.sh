@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function main(){
+  client="$(pwd | sed 's/.*clients\///g' | sed 's/\/.*//g')"
   search="$(awk -F: '/run/&& NR>5{print $2}' "$0" | fzf )"
   cmd="$(awk -v s="$search" '$0~s {getline; print $2}' "$0" | cut -d\( -f1 )"
   $cmd
